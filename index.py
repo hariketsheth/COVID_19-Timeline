@@ -14,3 +14,5 @@ for country in countries:
         country_codes.update({country: code})
     except:
         country_codes.update({country: ' '})
+for key, values in country_codes.items():
+    data_1.loc[(data_1.Country == key), 'ISO_Code'] = values
