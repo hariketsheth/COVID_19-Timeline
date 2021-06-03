@@ -16,3 +16,12 @@ for country in countries:
         country_codes.update({country: ' '})
 for key, values in country_codes.items():
     data_1.loc[(data_1.Country == key), 'ISO_Code'] = values
+
+figure = px.choropleth(data_frame=data_1,
+                       title = "Hariket Sheth: Plotting COVID-19 Timeline",
+                       locations="ISO_Code",
+                       color="Confirmed",
+                       hover_name="Country",
+                       color_continuous_scale="haline",
+                       animation_frame="Date")
+figure.show()
