@@ -1,9 +1,16 @@
-# Importing all the necessary Python Libraries 
 import pycountry
 import plotly.express as px
 import pandas as pd
 
-#Exrtracting the data from the GitHub COVID-19 Data
 database = r'https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv'
 data_1 = pd.read_csv(database)
-print(data_1)
+
+countries = data_1['Country'].unique().tolist()
+country_codes = {}
+for country in countries:
+    try:
+        country_data = pycountry.countries.search_fuzzy(country)
+        code = country_data[0].alpha_3
+        country_codes.update({country: code})
+    except:
+        country_codes.update({country: ' '})
