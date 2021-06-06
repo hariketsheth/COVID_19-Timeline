@@ -2,6 +2,7 @@ import pycountry
 import plotly.express as px
 import pandas as pd
 
+#Using the Github Dataset for the Plotting of COVID Cases timeline across countries 
 database = r'https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv'
 data_1 = pd.read_csv(database)
 
